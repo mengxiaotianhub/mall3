@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mengxiaotian.dao.TrxMapper" >
+  <resultMap id="BaseResultMap" type="com.mengxiaotian.meta.Trx" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="contentId" property="contentId" jdbcType="INTEGER" />
+    <result column="personId" property="personId" jdbcType="INTEGER" />
+    <result column="buyPrice" property="buyPrice" jdbcType="INTEGER" />
+    <result column="buyTime" property="buyTime" jdbcType="BIGINT" />
+  </resultMap>
+ 
+<select id = "getBuyList"  parameterType="Integer" resultType="com.mengxiaotian.common.meta.BuyList">
+SELECT content.id AS id,title,image,buyPrice,buyTime FROM content LEFT JOIN trx ON trx.contentId=content.id WHERE trx.personId=#{id}
+</select>
+</mapper>
