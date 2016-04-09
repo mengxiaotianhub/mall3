@@ -8,7 +8,7 @@ public class ProductList {
 	
 	private String image;
 	
-	private Long price;
+	private Integer price;
 	
 	private boolean isBuy;
 	
@@ -38,11 +38,11 @@ public class ProductList {
 		this.image = image;
 	}
 
-	public Long getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 

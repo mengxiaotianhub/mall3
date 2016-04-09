@@ -33,7 +33,7 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 	}
 
 	@Override
-	public List<ProductList> getProductList(Integer userId) throws Throwable {
+	public List<ProductList> getProductList(Integer userId) throws Exception{
 		List<ProductList> productll = new ArrayList<ProductList>();
 		Trx record = new Trx();
 		record.setPersonId(userId);
@@ -48,6 +48,7 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 					}
 				}
 			}
+			productll.add(productl);
 		}
 		
 		return productll;
@@ -61,11 +62,17 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 		record.setPersonId(userId);
 		record.setContentId(productId);
 		List<Trx> trx =trxMapper.select(record);
-		if(trx!=null){
+		if(trx.size()!=0){
 			product.setBuyPrice(trx.get(0).getBuyPrice());
 			product.setBuy(true);
 		}
-		return null;
+		return product;
+	}
+
+	@Override
+	public List<Content> getAllProductList() {
+		// TODO Auto-generated method stub
+		return contentMapper.selectAll();
 	}
 
 

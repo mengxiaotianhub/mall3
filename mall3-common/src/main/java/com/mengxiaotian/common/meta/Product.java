@@ -10,9 +10,9 @@ public class Product {
 	
 	private String summary;
 	
-	 private byte[] detail;
+	 private String detail;
 	
-	private Long price;
+	private Integer price;
 	
 	private Integer buyPrice;
 	
@@ -48,19 +48,19 @@ public class Product {
 		this.summary = summary;
 	}
 
-	public byte[] getDetail() {
+	public String getDetail() {
 		return detail;
 	}
 
-	public void setDetail(byte[] detail) {
+	public void setDetail(String detail) {
 		this.detail = detail;
 	}
 
-	public Long getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(Long price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 

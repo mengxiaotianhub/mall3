@@ -14,42 +14,49 @@ import com.mengxiaotian.service.TrxService;
 
 @Controller
 public class ShowController {
-	
+
 	@Autowired
 	private ContentService contentService;
-	
+
 	@Autowired
 	private TrxService trxService;
 
-	
 	@RequestMapping("/")
-	public String showIndex(Model map,HttpSession session){
+	public String showIndex(Model map, HttpSession session) {
 		try {
-			if(session.getAttribute("user")!=null){
-		map.addAttribute("productList", contentService.getProductList(((User)session.getAttribute("user")).getId()));
+			if (session.getAttribute("user") != null) {
+				map.addAttribute("productList",
+						contentService.getProductList(((User) session.getAttribute("user")).getId()));
+			} else {
+				map.addAttribute("productList", contentService.getAllProductList());
 			}
-		} catch (Throwable e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "index";
 	}
-	
+
 	@RequestMapping("/show")
-	public String showGoodsList(@Param("id")Integer id ,Model map,HttpSession session){
+	public String showGoodsList(@Param("id") Integer id, Model map, HttpSession session) {
 		try {
-			map.addAttribute("productList", contentService.getProduct(id,((User)session.getAttribute("user")).getId()));
-		} catch (Throwable e) {
+			if (session.getAttribute("user") != null) {
+				map.addAttribute("product",
+						contentService.getProduct(id, ((User) session.getAttribute("user")).getId()));
+			} else {
+				map.addAttribute("product", contentService.getAllProductList());
+			}
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "show";
-		
+
 	}
-	
+
 	@RequestMapping("/account")
-	public String showAccount(Model map,HttpSession session){
-		map.addAttribute("productList", trxService.getBuyList(((User)session.getAttribute("user")).getId()));
+	public String showAccount(Model map, HttpSession session) {
+		map.addAttribute("productList", trxService.getBuyList(((User) session.getAttribute("user")).getId()));
 		return "account";
 	}
 

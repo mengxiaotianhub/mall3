@@ -8,9 +8,9 @@ public class BuyList {
 	
 	private String image;
 	
-	private Long buyPrice;
+	private Integer buyPrice;
 	
-	private Long buyTime;
+	private Integer buyTime;
 
 	public Integer getId() {
 		return id;
@@ -36,19 +36,19 @@ public class BuyList {
 		this.image = image;
 	}
 
-	public Long getBuyPrice() {
+	public Integer getBuyPrice() {
 		return buyPrice;
 	}
 
-	public void setBuyPrice(Long buyPrice) {
+	public void setBuyPrice(Integer buyPrice) {
 		this.buyPrice = buyPrice;
 	}
 
-	public Long getBuyTime() {
+	public Integer getBuyTime() {
 		return buyTime;
 	}
 
-	public void setBuyTime(Long buyTime) {
+	public void setBuyTime(Integer buyTime) {
 		this.buyTime = buyTime;
 	}
 	

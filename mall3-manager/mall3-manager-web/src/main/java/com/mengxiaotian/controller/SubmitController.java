@@ -16,14 +16,34 @@ public class SubmitController {
 	private ContentService contentService;
 
 	@RequestMapping("/publicSubmit")
-	public String pubSubmit(Content content,Model map){
-		contentService.insertSelective(content);
+	public String pubSubmit(Content product,Model map){
+		try{
+		contentService.insertSelective(product);
+		}catch(Exception e){
+			e.printStackTrace();
+			map.addAttribute("code",400);
+			map.addAttribute("message","erorr");
+			map.addAttribute("result",false);
+		}
+		map.addAttribute("code",200);
+		map.addAttribute("message","comlpeted");
+		map.addAttribute("result",true);
 		return "publicSubmit";
 	}
 	
 	@RequestMapping("/editSubmit")
 	public String editSubmit(Content content,Model map){
-		contentService.updateByPrimaryKey(content);
+		try{
+			map.addAttribute("product",contentService.updateByPrimaryKey(content));
+			}catch(Exception e){
+				e.printStackTrace();
+				map.addAttribute("code",400);
+				map.addAttribute("message","erorr");
+				map.addAttribute("result",false);
+			}
+			map.addAttribute("code",200);
+			map.addAttribute("message","comlpeted");
+			map.addAttribute("result",true);
 		return "editSubmit";
 	}
 	
