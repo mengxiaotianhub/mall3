@@ -34,7 +34,7 @@ public class Content {
     /**
      * 正文
      */
-    private byte[] detail;
+    private byte[] details;
 
     /**
      * 获取主键
@@ -129,40 +129,18 @@ public class Content {
     /**
      * 获取正文
      *
-     * @return detail - 正文
+     * @return details - 正文
      */
-    public byte[] getDetail() {
-        return detail;
+    public byte[] getDetails() {
+        return details;
     }
 
     /**
      * 设置正文
      *
-     * @param detail 正文
+     * @param details 正文
      */
-    public void setDetail(byte[] detail) {
-        this.detail = detail;
+    public void setDetails(byte[] details) {
+        this.details = details;
     }
-   
-    @Transient
-    private boolean isBuy;
-    @Transient
-    private boolean isSell;
-
-	public boolean isBuy() {
-		return isBuy;
-	}
-
-	public void setBuy(boolean isBuy) {
-		this.isBuy = isBuy;
-	}
-
-	public boolean isSell() {
-		return isSell;
-	}
-
-	public void setSell(boolean isSell) {
-		this.isSell = isSell;
-	}
-    
 }

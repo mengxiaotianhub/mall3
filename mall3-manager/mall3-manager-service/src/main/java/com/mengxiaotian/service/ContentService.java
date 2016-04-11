@@ -14,4 +14,10 @@ public interface ContentService extends BaseService<Content, Integer> {
 
 	public List<Content> getAllProductList();
 
+	public Product insertProduct(Product product) throws Exception;
+
+	public Product updateProduct(Product product) throws Exception;
+
+	public Product selectProduct(Integer contentId) throws Exception;
+
 }

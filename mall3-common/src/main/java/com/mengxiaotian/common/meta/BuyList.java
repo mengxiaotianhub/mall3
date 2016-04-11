@@ -10,7 +10,7 @@ public class BuyList {
 	
 	private Integer buyPrice;
 	
-	private Integer buyTime;
+	private Long buyTime;
 
 	public Integer getId() {
 		return id;
@@ -44,11 +44,11 @@ public class BuyList {
 		this.buyPrice = buyPrice;
 	}
 
-	public Integer getBuyTime() {
+	public Long getBuyTime() {
 		return buyTime;
 	}
 
-	public void setBuyTime(Integer buyTime) {
+	public void setBuyTime(Long buyTime) {
 		this.buyTime = buyTime;
 	}
 	

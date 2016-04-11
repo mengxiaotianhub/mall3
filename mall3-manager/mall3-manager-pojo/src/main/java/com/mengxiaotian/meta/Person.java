@@ -64,7 +64,7 @@ public class Person {
     /**
      * 设置用户名
      *
-     * @param userName 用户名
+     * @param username 用户名
      */
     public void setUserName(String userName) {
         this.userName = userName;
@@ -102,8 +102,8 @@ public class Person {
      *
      * @param nickname 用户昵称
      */
-    public void setNickname(String nickname) {
-        this.nickName = nickname;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     /**
@@ -118,7 +118,7 @@ public class Person {
     /**
      * 设置类型，买家0，卖家1
      *
-     * @param userType 类型，买家0，卖家1
+     * @param usertype 类型，买家0，卖家1
      */
     public void setUserType(Integer userType) {
         this.userType = userType;

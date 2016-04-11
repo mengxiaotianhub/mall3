@@ -45,8 +45,8 @@ public class ApiController {
 	}
 	
 	@RequestMapping(value = "/delete")
-	public String productDelete(@Param("id") Integer contentId, Model map) {
-		contentService.deleteByPrimaryKey(contentId);
+	public String productDelete(@Param("id") Integer id, Model map) {
+		contentService.deleteByPrimaryKey(id);
 		map.addAttribute("code",200);
 		map.addAttribute("message","comlpeted");
 		map.addAttribute("result",true);
@@ -54,8 +54,8 @@ public class ApiController {
 	}
 	
 	@RequestMapping(value = "/buy")
-	public String productBuy(@Param("id") Integer contentId, Model map,HttpSession session) {
-		trxService.buy(contentId,((User)session.getAttribute("user")).getId());
+	public String productBuy(@Param("id") Integer id, Model map,HttpSession session) {
+		trxService.buy(id,((User)session.getAttribute("user")).getId());
 		map.addAttribute("code",200);
 		map.addAttribute("message","comlpeted");
 		map.addAttribute("result",true);

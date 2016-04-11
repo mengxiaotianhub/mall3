@@ -7,6 +7,5 @@ import com.mengxiaotian.meta.Trx;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TrxMapper extends Mapper<Trx> {
-	
 	public List<BuyList> getBuyList(Integer userId);
 }

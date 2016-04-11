@@ -58,7 +58,9 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 	public Product getProduct(Integer productId, Integer userId) throws Exception {
 		Product product = new Product();
 		Trx record = new Trx();
-		CopyUtil.Copy(contentMapper.selectByPrimaryKey(productId), product);
+		Content content=contentMapper.selectByPrimaryKey(productId);
+		CopyUtil.Copy(content, product);
+		product.setDetail(new String(content.getDetails(),"UTF-8"));
 		record.setPersonId(userId);
 		record.setContentId(productId);
 		List<Trx> trx =trxMapper.select(record);
@@ -73,6 +75,34 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 	public List<Content> getAllProductList() {
 		// TODO Auto-generated method stub
 		return contentMapper.selectAll();
+	}
+
+	@Override
+	public Product insertProduct(Product product) throws Exception {
+		Content content=new Content();
+		CopyUtil.Copy(product, content);
+		content.setDetails(product.getDetail().getBytes("UTF-8"));
+		contentMapper.insertSelective(content);
+		product.setId(content.getId());
+		return product;
+	}
+
+	@Override
+	public Product updateProduct(Product product) throws Exception {
+		Content content=new Content();
+		CopyUtil.Copy(product, content);
+		content.setDetails(product.getDetail().getBytes("UTF-8"));
+		contentMapper.updateByPrimaryKey(content);
+		return product;
+	}
+
+	@Override
+	public Product selectProduct(Integer contentId) throws Exception {
+		Content content=contentMapper.selectByPrimaryKey(contentId);
+		Product product =new Product();
+		CopyUtil.Copy(content, product);
+		product.setDetail(new String(content.getDetails(),"UTF-8"));
+		return product;
 	}
 
 

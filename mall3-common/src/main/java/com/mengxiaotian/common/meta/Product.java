@@ -88,8 +88,8 @@ public class Product {
 		this.isSell = isSell;
 	}
 
-	private boolean isBuy;
+	private boolean isBuy=false;
 	
-	private boolean isSell;
+	private boolean isSell=false;
 
 }

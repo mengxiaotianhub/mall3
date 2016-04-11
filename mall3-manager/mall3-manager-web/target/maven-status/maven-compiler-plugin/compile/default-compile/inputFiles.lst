@@ -2,4 +2,6 @@ G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxi
 G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\filter\UserFilter.java
 G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\controller\SubmitController.java
 G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\controller\ApiController.java
+G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\filter\BuyerPowerFilter.java
 G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\controller\PageController.java
+G:\development\workpace\mall3-manager\mall3-manager-web\src\main\java\com\mengxiaotian\filter\SellerPowerFilter.java

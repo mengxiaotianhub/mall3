@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mengxiaotian.meta.Content;
+import com.mengxiaotian.common.meta.Product;
 import com.mengxiaotian.service.ContentService;
 
 @Controller
@@ -16,9 +16,9 @@ public class SubmitController {
 	private ContentService contentService;
 
 	@RequestMapping("/publicSubmit")
-	public String pubSubmit(Content product,Model map){
+	public String pubSubmit(Product product,Model map){
 		try{
-		contentService.insertSelective(product);
+		map.addAttribute("product", contentService.insertProduct(product));
 		}catch(Exception e){
 			e.printStackTrace();
 			map.addAttribute("code",400);
@@ -32,9 +32,9 @@ public class SubmitController {
 	}
 	
 	@RequestMapping("/editSubmit")
-	public String editSubmit(Content content,Model map){
+	public String editSubmit(Product product,Model map){
 		try{
-			map.addAttribute("product",contentService.updateByPrimaryKey(content));
+			map.addAttribute("product",contentService.updateProduct(product));
 			}catch(Exception e){
 				e.printStackTrace();
 				map.addAttribute("code",400);
@@ -48,8 +48,12 @@ public class SubmitController {
 	}
 	
 	@RequestMapping("/edit")
-	public String edit(@Param("id") Integer contentId,Model map){
-		map.addAttribute("product", contentService.selectByPrimaryKey(contentId));
+	public String edit(@Param("id") Integer id,Model map){
+		try{
+			map.addAttribute("product", contentService.selectProduct(id));
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		return "edit";
 	}
 	

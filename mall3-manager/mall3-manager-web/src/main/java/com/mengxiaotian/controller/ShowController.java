@@ -44,7 +44,7 @@ public class ShowController {
 				map.addAttribute("product",
 						contentService.getProduct(id, ((User) session.getAttribute("user")).getId()));
 			} else {
-				map.addAttribute("product", contentService.getAllProductList());
+				map.addAttribute("product", contentService.selectProduct(id));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -56,7 +56,7 @@ public class ShowController {
 
 	@RequestMapping("/account")
 	public String showAccount(Model map, HttpSession session) {
-		map.addAttribute("productList", trxService.getBuyList(((User) session.getAttribute("user")).getId()));
+		map.addAttribute("buyList", trxService.getBuyList(((User) session.getAttribute("user")).getId()));
 		return "account";
 	}
 

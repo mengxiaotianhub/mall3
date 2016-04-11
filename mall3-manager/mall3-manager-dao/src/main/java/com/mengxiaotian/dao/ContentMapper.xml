@@ -10,6 +10,6 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="image" property="image" jdbcType="VARCHAR" />
     <result column="summary" property="summary" jdbcType="VARCHAR" />
-    <result column="detail" property="detail" jdbcType="LONGVARBINARY" />
+    <result column="details" property="details" jdbcType="LONGVARBINARY" />
   </resultMap>
 </mapper>

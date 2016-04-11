@@ -11,8 +11,8 @@
     <result column="buyPrice" property="buyPrice" jdbcType="INTEGER" />
     <result column="buyTime" property="buyTime" jdbcType="BIGINT" />
   </resultMap>
- 
-<select id = "getBuyList"  parameterType="Integer" resultType="com.mengxiaotian.common.meta.BuyList">
+  
+  <select id = "getBuyList"  parameterType="Integer" resultType="com.mengxiaotian.common.meta.BuyList">
 SELECT content.id AS id,title,image,buyPrice,buyTime FROM content LEFT JOIN trx ON trx.contentId=content.id WHERE trx.personId=#{id}
 </select>
 </mapper>
