@@ -25,3 +25,32 @@ ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('1','buyer','37254660e226ea65ce6f1efd54233424','buyer','0');
 insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('2','seller','981c57a5cfb0f868e064904b8745766f','seller','1');
+
+
+create table person(
+id int auto_increment primary key , 
+userName varchar(100) , 
+password varchar(100) ,
+nickName varchar(50),
+userType int(10) ) 
+ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+create table content(
+id int auto_increment primary key ,  
+price int  ,
+title varchar(100),
+image varchar(100),
+summary varchar(200),
+details blob )
+ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+create table trx(
+id int auto_increment primary key,  
+contentId int ,
+personId int,
+buyPrice int,
+buyTime bigint)
+ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('1','buyer','37254660e226ea65ce6f1efd54233424','buyer','0');
+insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('2','seller','981c57a5cfb0f868e064904b8745766f','seller','1');

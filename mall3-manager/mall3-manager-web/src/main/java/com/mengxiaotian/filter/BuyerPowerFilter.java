@@ -7,6 +7,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -19,7 +20,9 @@ public class BuyerPowerFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		user = (User) request.getSession().getAttribute("User");
+		HttpSession session =request.getSession(false);
+		if(session!=null){
+		user = (User) session.getAttribute("user");
 		if (user != null && user.getUsertype() == 0) {
 			// 如果session中存在登录者实体，且类型相符则继续
 			filterChain.doFilter(request, response);
@@ -35,6 +38,9 @@ public class BuyerPowerFilter extends OncePerRequestFilter {
 			builder.append("';");
 			builder.append("</script>");
 			out.print(builder.toString());
+		}
+		}else{
+			filterChain.doFilter(request, response);
 		}
 
 	}

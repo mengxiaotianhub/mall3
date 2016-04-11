@@ -48,19 +48,8 @@
 		<servlet-name>mall3-manager</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-	<!-- 注入User -->  
-    <filter>  
-        <filter-name>Set User</filter-name>  
-        <filter-class>  
-            com.mengxiaotian.filter.UserFilter
-        </filter-class>  
-    </filter>  
-    <filter-mapping>  
-        <filter-name>Set User</filter-name>  
-        <url-pattern>/*</url-pattern>  
-    </filter-mapping>  
     <!-- 权限控制-->  
-    <filter>  
+	 <filter>  
         <filter-name>Buyer Power</filter-name>  
         <filter-class>  
             com.mengxiaotian.filter.BuyerPowerFilter
@@ -82,5 +71,5 @@
         <url-pattern>/public</url-pattern>  
         <url-pattern>/delete</url-pattern>  
         <url-pattern>/edit</url-pattern>  
-    </filter-mapping>  
+    </filter-mapping> 
 </web-app>
