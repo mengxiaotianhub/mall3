@@ -34,13 +34,16 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 
 	@Override
 	public List<ProductList> getProductList(Integer userId) throws Exception{
+		
 		List<ProductList> productll = new ArrayList<ProductList>();
 		Trx record = new Trx();
 		record.setPersonId(userId);
+		
 		List<Trx> trxList = trxMapper.select(record);
 		for(Content content : contentMapper.selectAll()){
 			ProductList productl = new ProductList();
 			CopyUtil.Copy(content, productl);
+			
 			if(userId!=null){
 				for(Trx trx:trxList){
 					if(trx.getContentId()==productl.getId()){
@@ -48,6 +51,7 @@ public class ContentServiceImpi  extends BaseServiceImpi<Content, Integer>  impl
 					}
 				}
 			}
+			
 			productll.add(productl);
 		}
 		

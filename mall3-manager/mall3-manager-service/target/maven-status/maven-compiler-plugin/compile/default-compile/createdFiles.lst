@@ -1,2 +1,8 @@
+com\mengxiaotian\service\impi\ContentServiceImpi.class
+com\mengxiaotian\service\impi\PersonServiceImpi.class
+com\mengxiaotian\service\impi\TrxServiceImpi.class
+com\mengxiaotian\service\ContentService.class
 com\mengxiaotian\service\BaseService.class
 com\mengxiaotian\service\impi\BaseServiceImpi.class
+com\mengxiaotian\service\PersonService.class
+com\mengxiaotian\service\TrxService.class

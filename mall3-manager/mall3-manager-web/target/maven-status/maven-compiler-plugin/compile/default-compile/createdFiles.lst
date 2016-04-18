@@ -1,2 +1,6 @@
+com\mengxiaotian\filter\SellerPowerFilter.class
 com\mengxiaotian\controller\PageController.class
+com\mengxiaotian\filter\BuyerPowerFilter.class
+com\mengxiaotian\controller\ApiController.class
 com\mengxiaotian\controller\ShowController.class
+com\mengxiaotian\controller\SubmitController.class

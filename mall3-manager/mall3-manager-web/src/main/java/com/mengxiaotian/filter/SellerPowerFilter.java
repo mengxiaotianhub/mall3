@@ -13,6 +13,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.mengxiaotian.common.meta.User;
 
+/**
+ * 卖家权限控制过滤器
+ * @author mengxiaotian
+ */
 public class SellerPowerFilter extends OncePerRequestFilter {
 	private User user;
 
